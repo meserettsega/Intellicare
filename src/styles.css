@@ -1,0 +1,58 @@
+/*
+  Installation (run in project root):
+
+  npm install three @react-three/fiber @react-three/drei gsap
+  npm install -D tailwindcss postcss autoprefixer
+  npx tailwindcss init -p
+
+  Dev commands:
+  npm run dev    # start Vite dev server
+  npm run build  # build for production
+  npm run preview
+
+  Notes:
+  - Place a realistic GLB model at /public/models/elephant.glb
+  - We use @react-three/fiber and @react-three/drei for the 3D scene,
+    and GSAP + ScrollTrigger for scroll-linked camera motion.
+*/
+
+/* Small helper overrides and hero styles */
+.hero-full {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  z-index: 40;
+  pointer-events: none;
+}
+
+.company-name {
+  color: #e8eef8;
+  text-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #06b6d4, #7c3aed);
+  color: #071026;
+  box-shadow: 0 8px 30px rgba(124,58,237,0.12);
+}
+
+.btn-ghost {
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #e6eef8;
+  background: transparent;
+}
+
+/* Make sure the 3D canvas sits behind content */
+.hero-full > canvas {
+  position: absolute !important;
+  inset: 0;
+}
+
+/* Responsive typography tweaks */
+@media (max-width: 640px) {
+  .company-name { font-size: 1.6rem; }
+}
